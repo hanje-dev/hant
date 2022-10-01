@@ -1,0 +1,15 @@
+.zent-popup[data-zv="1.0.1"] {
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-spec-layer, 0 2px 16px 0 rgba(var(--theme-rgb-section-shadow, 0, 0, 0), 0.1));
+  background-color: #fff;
+  background-color: var(--theme-body-bg, var(--theme-stroke-9, #fff));
+  left: 0;
+  outline: none;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+  z-index: 2000;
+  max-height: 224px;
+  border-radius: 3px;
+  font-size: 14px;
+}

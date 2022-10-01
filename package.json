@@ -1,0 +1,22 @@
+{
+  "name": "zent-repo",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cmp": "yarn workspace hant compile-plugins",
+    "build": "yarn workspace hant build",
+    "link": "yarn workspace hant link"
+  },
+  "workspaces": [
+    "packages/hant"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^8.4.5",
+    "postcss-scss": "^4.0.2"
+  },
+  "dependencies": {
+    "postcss-value-parser": "^4.2.0"
+  }
+}

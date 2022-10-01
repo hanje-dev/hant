@@ -1,0 +1,35 @@
+@import '../theme/default';
+
+@mixin popup-menu-item-common {
+  @include theme-color(background-color, stroke, 9);
+  display: block;
+  outline: none;
+  padding: 7px 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin popup-menu-item-specific {
+  &.current,
+  &.hover,
+  &:hover {
+    @include theme-color(background-color, primary, 8);
+  }
+
+  &.active {
+    @include theme-color(background-color, stroke, 8);
+    font-weight: 500;
+  }
+
+  &.active:hover,
+  &.active.hover,
+  &.active.current {
+    @include theme-color(background-color, stroke, 8);
+  }
+}
+
+@mixin popup-menu-item {
+  @include popup-menu-item-common;
+  @include popup-menu-item-specific;
+}

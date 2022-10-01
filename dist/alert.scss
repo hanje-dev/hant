@@ -1,0 +1,192 @@
+@import './theme/default';
+@import './theme/font';
+
+$info-map: (
+  theme: primary,
+  border-color: 7,
+  background-color: 8,
+  icon-color: 4,
+  outline-color: 4,
+  highlight-color: 4,
+);
+
+$success-map: (
+  theme: success,
+  border-color: 4,
+  background-color: 5,
+  icon-color: 2,
+  outline-color: 2,
+  highlight-color: 2,
+);
+
+$warning-map: (
+  theme: warn,
+  border-color: 4,
+  background-color: 5,
+  icon-color: 2,
+  outline-color: 2,
+  highlight-color: 2,
+);
+
+$error-map: (
+  theme: error,
+  border-color: 4,
+  background-color: 5,
+  icon-color: 2,
+  outline-color: 2,
+  highlight-color: 2,
+);
+
+$type-map: (
+  info: $info-map,
+  success: $success-map,
+  warning: $warning-map,
+  error: $error-map,
+);
+
+.hant-alert {
+  @include theme-border(1px, solid, stroke, 5);
+
+  padding: 12px 16px;
+  border-radius: 2px;
+
+  &-outline {
+    border-radius: 4px;
+  }
+}
+
+.hant-alert-scroll {
+  @include theme-border(1px, solid, stroke, 5);
+  border-radius: 2px;
+  height: min-content;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  .hant-alert-scroll-container {
+    padding: 12px 16px;
+    transition-timing-function: ease-in-out;
+  }
+
+  .hant-alert-item {
+    transform: translateY(0);
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  .hant-alert-scroll-active-item {
+    opacity: 1;
+  }
+
+  .hant-alert-scroll-virtual-item {
+    opacity: 1;
+  }
+
+  &-outline {
+    border-radius: 4px;
+  }
+}
+
+.hant-alert-item {
+  @include font-normal;
+  @include theme-color(color, stroke, 1);
+  box-sizing: border-box;
+  display: flex;
+
+  &-content {
+    flex: 1 1 auto;
+
+    &__highlight {
+      font-weight: $font-weight-medium;
+    }
+
+    &__title {
+      font-weight: $font-weight-medium;
+
+      + .hant-alert-item-content__description {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &-close-wrapper {
+    margin-left: 16px;
+    cursor: pointer;
+
+    .hant-alert-item-close-btn {
+      @include theme-color(color, stroke, 4);
+      font-size: 12px;
+      width: 16px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+
+  &-extra-content {
+    // 对按钮撑开内容区高度的特殊处理
+    margin: -6px 0 -6px 16px;
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  &-icon {
+    margin-right: 8px;
+
+    &.hanticon,
+    .hant-loading-icon-and-text {
+      width: 16px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+}
+
+@each $type, $color-index-map in $type-map {
+  $theme: map-get($color-index-map, theme);
+  $background-color: map-get($color-index-map, background-color);
+  $border-color: map-get($color-index-map, border-color);
+  $highlight-color: map-get($color-index-map, highlight-color);
+  $outline-color: map-get($color-index-map, outline-color);
+  $icon-color: map-get($color-index-map, icon-color);
+
+  .hant-alert-style-#{$type} {
+    @include theme-color(background-color, $theme, $background-color);
+    @include theme-color(border-color, $theme, $border-color);
+
+    .hant-alert-item-content__highlight {
+      @include theme-color(color, $theme, $highlight-color);
+    }
+
+    &.hant-alert-outline,
+    &.hant-alert-scroll-outline {
+      @include theme-color(background-color, stroke, 9);
+      @include theme-color(border-color, stroke, 5);
+      @include theme-color(border-top-color, $theme, $outline-color);
+      border-width: 1px;
+      border-style: solid;
+      border-top-width: 4px;
+
+      .hant-alert-item-content__title {
+        @include theme-color(color, $theme, $outline-color);
+      }
+    }
+
+    .hant-alert-item-icon {
+      @include theme-color(color, $theme, $icon-color);
+    }
+  }
+}
+
+// hint类型样式
+.hant-alert-style-hint {
+  @include theme-color(background-color, stroke, 8);
+  border: 0;
+  padding: 13px 16px;
+
+  .hant-alert-item-content {
+    font-size: $font-size-small;
+    line-height: 20px;
+  }
+}

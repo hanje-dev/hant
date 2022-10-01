@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strict": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "ESNext"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "es",
+    "rootDir": "./src",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "downlevelIteration": false,
+    "target": "es5",
+    "plugins": [
+      { "transform": "./plugins/ts-plugin-constants.js" },
+      { "transform": "./plugins/ts-plugin-version-attribute.js" }
+    ]
+  },
+  "include": ["src"]
+}

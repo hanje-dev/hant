@@ -1,0 +1,47 @@
+{
+  "AlertItem": {
+    "js": "/alert/index.js",
+    "isDefaultExport": false,
+    "style": [
+      "base",
+      "alert"
+    ]
+  },
+  "Alert": {
+    "js": "/alert/index.js",
+    "isDefaultExport": true,
+    "style": [
+      "base",
+      "alert"
+    ]
+  },
+  "ScrollAlert": {
+    "js": "/alert/index.js",
+    "isDefaultExport": false,
+    "style": [
+      "base",
+      "alert"
+    ]
+  },
+  "BlockLoading": {
+    "js": "/loading/BlockLoading.js",
+    "isDefaultExport": true,
+    "style": [
+      "base"
+    ]
+  },
+  "FullScreenLoading": {
+    "js": "/loading/FullScreenLoading.js",
+    "isDefaultExport": true,
+    "style": [
+      "base"
+    ]
+  },
+  "InlineLoading": {
+    "js": "/loading/InlineLoading.js",
+    "isDefaultExport": true,
+    "style": [
+      "base"
+    ]
+  }
+}
